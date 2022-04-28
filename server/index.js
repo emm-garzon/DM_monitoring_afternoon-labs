@@ -25,6 +25,15 @@ app.get("/", (req, res) => {
   rollbar.info("html file served successfully.");
 });
 
+let inputText = [];
+
+app.post("/user", (req, res) => {
+  let { input } = req.body;
+  inputText.push(input);
+  rollbar.log("Successfully received input text");
+  res.status(200).send(inputText);
+});
+
 try {
   nonExistentFunction();
 } catch (error) {
