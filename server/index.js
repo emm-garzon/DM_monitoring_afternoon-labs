@@ -27,9 +27,7 @@ app.get("/", (req, res) => {
 
 let inputText = [];
 
-app.post("/user", (req, res) => {
-  let { input } = req.body;
-  inputText.push(input);
+app.get("/user/api", (req, res) => {
   rollbar.log("Successfully received input text");
   res.status(200).send(inputText);
 });

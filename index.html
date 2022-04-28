@@ -20,7 +20,7 @@
         e.preventDefault();
         // alert("click");
         axios
-          .post("/user", { input: inputField.value })
+          .get("/user/api", { input: inputField.value })
           .then((res) => {
             inputField.value = "";
             console.log(res.data);
