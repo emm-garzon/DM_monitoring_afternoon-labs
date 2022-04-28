@@ -20,6 +20,11 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log("Hello world!");
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+  rollbar.info("html file served successfully.");
+});
+
 // ROLLBAR END
 
 const port = process.env.PORT || 4545;
